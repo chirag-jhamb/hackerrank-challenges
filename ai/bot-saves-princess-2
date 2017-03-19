@@ -1,0 +1,32 @@
+#!/bin/python
+def nextMove(n,r,c,grid):
+    cr=c
+    cl=r
+    r=-1
+    l=-1
+    for i in range(n):
+        if "p" in grid[i]:
+            r=grid[i].index("p")
+            l=i
+    while (r!=cr):
+        if r>cr:
+            return "RIGHT"
+            cr=cr+1
+        else:
+            return "LEFT"
+            cr=cr-1
+    while (l!=cl):
+        if l<cl:
+            return "UP"
+            cl=cl-1
+        else:
+            return "DOWN"
+            cl=cl+1
+
+n = input()
+r,c = [int(i) for i in raw_input().strip().split()]
+grid = []
+for i in xrange(0, n):
+    grid.append(raw_input())
+
+print nextMove(n,r,c,grid)
